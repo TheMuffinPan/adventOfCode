@@ -17,7 +17,6 @@ def main():
 
     # Loop over the individual lines of the input data
     for index, game in games:
-        index = index + 1 # Need to add by 1 since the game values start at 1
         cubes = game.split(":")[1].strip() # Split off the : and get the second part since the first part is the Game and Index which we do not want to search through
         individualPulls = cubes.split(";")
 
@@ -36,7 +35,7 @@ def main():
 
             # Determine if any pull in this game is invalid or not
             if (cubeTotalsPerPull[0] > maxRed) or (cubeTotalsPerPull[1] > maxGreen) or (cubeTotalsPerPull[2] > maxBlue):
-                validGames[index-1] = False
+                validGames[index] = False
 
         # Find all the valid games
         validGameIndex = [ii for ii, x in enumerate(validGames) if x]
